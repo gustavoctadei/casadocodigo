@@ -17,7 +17,7 @@ public class HomeController {
     
     @RequestMapping("/")
     public String index(){
-        System.out.println("Entrando na Home da Casa da CDC");
+        //System.out.println("Entrando na Home da Casa da CDC");
         return "home";
     }
     

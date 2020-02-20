@@ -3,13 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.casadocodigo.loja.model;
+package br.com.casadocodigo.loja.models;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author Gustavo
  */
+@Entity
 public class Produto {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     
     private String titulo;
     
@@ -40,7 +50,7 @@ public class Produto {
     public void setPaginas(int paginas) {
         this.paginas = paginas;
     }
-
+    
     @Override
     public String toString() {
         return "Produto{" + "titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas + '}';
