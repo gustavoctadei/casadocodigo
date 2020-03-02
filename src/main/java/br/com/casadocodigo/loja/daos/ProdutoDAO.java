@@ -6,6 +6,7 @@
 package br.com.casadocodigo.loja.daos;
 
 import br.com.casadocodigo.loja.models.Produto;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -24,6 +25,11 @@ public class ProdutoDAO {
     
     public void gravar(Produto produto){
         manager.persist(produto);
+    }
+
+    public List<Produto> listar() {
+        String query = "select p from Produto p";
+        return manager.createQuery(query, Produto.class).getResultList();
     }
     
 }
