@@ -16,7 +16,7 @@
     </head>
     <body>
         
-        <form:form action="${ s:mvcUrl('PC#gravar').build() }" commandName="produto" method="post">
+        <form:form action="${ s:mvcUrl('gravarProduto').build() }" commandName="produto" method="post">
             <div>
                 <label>Título</label>
                 <input type="text" name="titulo">
