@@ -1,9 +1,5 @@
-## ignoring target file
+# Ignorando a pasta target
 target/
 
-#Configuracao do NetBeans
+# Ignorando o arquivo de configuracao do netbeans
 nb-configuration.xml
-
-.settings/
-.classpath
-.project
