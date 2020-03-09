@@ -34,6 +34,8 @@ public class Produto {
     
     @ElementCollection //Esta anotação serve para criar uma tabela já relacionando a lista de preco com o produto, sem precisar controlar o ID
     private List<Preco> precos;
+    
+    private String sumarioPath;
 
     public String getTitulo() {
         return titulo;
@@ -81,6 +83,14 @@ public class Produto {
 
     public void setDataLancamento(Calendar dataLancamento) {
         this.dataLancamento = dataLancamento;
+    }
+
+    public String getSumarioPath() {
+        return sumarioPath;
+    }
+
+    public void setSumarioPath(String sumarioPath) {
+        this.sumarioPath = sumarioPath;
     }
     
     @Override
