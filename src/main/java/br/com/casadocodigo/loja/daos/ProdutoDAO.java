@@ -32,4 +32,10 @@ public class ProdutoDAO {
         return manager.createQuery(query, Produto.class).getResultList();
     }
     
+    public Produto find(Integer id){
+        return manager.createQuery("select distinct (p) from Produto p join fetch p.precos preco where p.id = :id", Produto.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
+    
 }
