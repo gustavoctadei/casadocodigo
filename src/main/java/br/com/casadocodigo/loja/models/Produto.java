@@ -5,6 +5,7 @@
  */
 package br.com.casadocodigo.loja.models;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
 import javax.persistence.ElementCollection;
@@ -20,21 +21,21 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @Entity
 public class Produto {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
+
     private String titulo;
     private String descricao;
     private int paginas;
-    
+
     @DateTimeFormat
     private Calendar dataLancamento;
-    
+
     @ElementCollection //Esta anotação serve para criar uma tabela já relacionando a lista de preco com o produto, sem precisar controlar o ID
     private List<Preco> precos;
-    
+
     private String sumarioPath;
 
     public String getTitulo() {
@@ -92,7 +93,7 @@ public class Produto {
     public void setSumarioPath(String sumarioPath) {
         this.sumarioPath = sumarioPath;
     }
-    
+
     @Override
     public String toString() {
         return "Produto{" + "titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas + '}';
@@ -122,5 +123,9 @@ public class Produto {
         }
         return true;
     }
-    
+
+    public BigDecimal precoPara(TipoPreco tipoPreco) {
+        return precos.stream().filter(preco -> preco.getTipo().equals(tipoPreco)).findFirst().get().getValor();
+    }
+
 }
