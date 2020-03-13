@@ -5,6 +5,7 @@
  */
 package br.com.casadocodigo.loja.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
@@ -20,7 +21,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  * @author Gustavo
  */
 @Entity
-public class Produto {
+public class Produto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
