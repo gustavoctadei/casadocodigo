@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!DOCTYPE html>
 <html>
@@ -76,7 +77,7 @@
             </header>
 
             <section class="buy-options clearfix">
-                <form action='<c:url value="/carrinho/add" />' method="post" class="container">
+                <form:form servletRelativeAction="/carrinho/add" method="post" cssClass="container">
                     <ul id="variants" class="clearfix">
 
                         <input type="hidden" value="${produto.id}" name="produtoId" >
@@ -92,7 +93,8 @@
 
                     </ul>
                     <button type="submit" class="submit-image icon-basket-alt" title="Compre agora '${produto.titulo}'!"></button>
-                </form>
+<!--                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >-->
+                </form:form>
             </section>
 
             <div class="container">

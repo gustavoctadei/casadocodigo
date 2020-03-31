@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         //A ordem das regras abaixo importa. Desta forma, é interessante primeiro fazer os bloqueios e depois liberar o restante
         http.authorizeRequests()
                 .antMatchers("/produtos/form").hasRole("ADMIN")
-                .antMatchers("/carrinho").permitAll()
+                .antMatchers("/carrinho/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/produtos").hasRole("ADMIN")
                 //.antMatchers(HttpMethod.GET, "/produtos").permitAll()
                 .antMatchers(HttpMethod.GET, "/produtos").hasRole("ADMIN")
