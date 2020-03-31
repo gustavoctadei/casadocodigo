@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,13 +17,13 @@
         <c:url value="/resources/css" var="cssPath" />
         <link rel="stylesheet" href="${cssPath}/bootstrap.min.css">
         <link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css">
-        
-<!--        <style type="text/css">
-            body {
-                padding-top: 60px;
-            }
-        </style>-->
-        
+
+        <!--        <style type="text/css">
+                    body {
+                        padding-top: 60px;
+                    }
+                </style>-->
+
     </head>
     <body>
 
@@ -42,6 +43,16 @@
                         <li><a href="${s:mvcUrl('listarProdutos').build()}">Lista de Produtos</a></li>
                         <li><a href="${s:mvcUrl('formProdutos').build()}">Cadastro de Produtos</a></li>
                     </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                <security:authentication property="principal" var="usuario" />
+                                Usuário: ${usuario.nome}
+                            </a>
+                        </li>
+                    </ul>
+
                 </div><!-- /.navbar-collapse -->
             </div>
         </nav>
