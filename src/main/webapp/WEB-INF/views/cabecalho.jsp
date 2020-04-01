@@ -10,15 +10,16 @@
                 <ul class="clearfix">
                     <li>
                         <a href="${ s:mvcUrl('carrinhoItens').build() }" rel="nofollow">
-                            <fmt:message key="menu.carrinho" />
+                            <!--<fmt:message key="menu.carrinho">
+                                <fmt:param value="${carrinhoCompras.quantidade}" />
+                            </fmt:message>-->
+                            <s:message code="menu.carrinho" arguments="${carrinhoCompras.quantidade}" />
                         </a>
                     </li>
                     <li>
                         <a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">
                             <fmt:message key="menu.sobre" />
-                        </a>
                     </li>
-                    <li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas Frequentes</a></li>
                 </ul>
             </nav>
         </div>
