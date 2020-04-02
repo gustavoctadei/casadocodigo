@@ -22,11 +22,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class ProdutoDAO {
-    
+
     @PersistenceContext
     private EntityManager manager;
-    
-    public void gravar(Produto produto){
+
+    public void gravar(Produto produto) {
         manager.persist(produto);
     }
 
@@ -34,19 +34,19 @@ public class ProdutoDAO {
         String query = "select p from Produto p";
         return manager.createQuery(query, Produto.class).getResultList();
     }
-    
-    public Produto find(Integer id){
+
+    public Produto find(Integer id) {
         String query = "select distinct (p) from Produto p join fetch p.precos preco where p.id = :id";
         return manager.createQuery(query, Produto.class).setParameter("id", id).getSingleResult();
     }
-    
+
     public BigDecimal somaPrecosPorTipoPreco(TipoPreco tipoPreco) {
-        String sql = "select sum(preco.valor) from Produto p join p.precos preco where preco.tipoPreco = :tipoPreco";
+        String sql = "select sum(preco.valor) from Produto p join p.precos preco where preco.tipo = :tipoPreco";
         
         TypedQuery<BigDecimal> query = manager.createQuery(sql, BigDecimal.class);
         query.setParameter("tipoPreco", tipoPreco);
         
         return query.getSingleResult();
     }
-    
+
 }
