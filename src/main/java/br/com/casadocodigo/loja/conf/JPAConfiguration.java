@@ -34,6 +34,7 @@ public class JPAConfiguration {
         factoryBean.setJpaVendorAdapter(vendorAdapter);
         
         factoryBean.setDataSource(dataSource);
+        
         factoryBean.setJpaProperties(aditionalProperties());
         factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
 
@@ -49,7 +50,7 @@ public class JPAConfiguration {
         dataSource.setPassword("postgres");
         dataSource.setUrl("jdbc:postgresql://192.168.56.105:5432/casadocodigo");
         
-        return dataSource();
+        return dataSource;
     }
     
     private Properties aditionalProperties() {
