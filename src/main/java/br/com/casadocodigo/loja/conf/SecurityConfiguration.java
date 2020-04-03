@@ -40,6 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/produtos/**").permitAll()
                 .antMatchers("/resources/**").permitAll()
                 .antMatchers("/").permitAll()
+                .antMatchers("/url-magica-maluca-r4t7832937hldjkfb9e03r934i9f9rfjpqçemd0p24j8fr03fhiec").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
