@@ -31,7 +31,8 @@ public class ProdutoDAO {
     }
 
     public List<Produto> listar() {
-        String query = "select p from Produto p";
+        String query = "select distinct(p) from Produto p join fetch p.precos"; //Para resolver o problema do LazyInitialization pela Query
+        //String query = "select distinct(p) from Produto p";
         return manager.createQuery(query, Produto.class).getResultList();
     }
 
