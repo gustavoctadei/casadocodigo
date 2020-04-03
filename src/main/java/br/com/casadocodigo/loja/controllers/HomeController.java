@@ -55,7 +55,7 @@ public class HomeController {
         BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
         String hashSenha = enc.encode("123456");
         usuario.setSenha(hashSenha);
-        usuario.setRoles(Arrays.asList(new Role("ADMIN")));
+        usuario.setRoles(Arrays.asList(new Role("ROLE_ADMIN")));
         
         usuarioDao.gravar(usuario);
         return "Url magica Executada";
